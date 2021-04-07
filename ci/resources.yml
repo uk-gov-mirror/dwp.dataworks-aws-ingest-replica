@@ -20,13 +20,13 @@ resources:
     type: git
     source:
       branch: master
-      repository: dwp/dataworks-aws-ingest-replica
       uri: https://github.com/dwp/dataworks-aws-ingest-replica.git
+      access_token: ((dataworks-secrets.concourse_github_pat))
       paths:
         - ci/*
         - aviator.yml
-    check_every: 5m
     webhook_token: ((dataworks.concourse_github_webhook_token))
+    check_every: 5m
 
   - name: al2-emr-ami
     type: ami
