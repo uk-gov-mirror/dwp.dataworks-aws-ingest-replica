@@ -169,19 +169,13 @@ resource "aws_emr_cluster" "hbase_read_replica" {
     }
   },
  {
-    "Classification": "core-site",
-    "Properties": {
-      "fs.s3.impl": "com.amazon.ws.emr.hadoop.fs.EmrFileSystem"
-    }
-  },
-    {
       "Classification": "emrfs-site",
       "Properties": {
         "fs.s3.multipart.th.fraction.parts.completed": "${var.hbase_fs_multipart_th_fraction_parts_completed[local.environment]}",
         "fs.s3.maxConnections": "${var.hbase_s3_maxconnections[local.environment]}",
         "fs.s3.maxRetries": "${var.hbase_s3_max_retry_count[local.environment]}"
       }
-    }
+   }
   ]
 EOF
 
